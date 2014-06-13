@@ -10,12 +10,18 @@ I have committed the script used to generate the original tables, populate test 
 
 Consider you have a database that has three tables:
 
+| | |
+|---|---|
 |table:|address|
 |field:|id, street, zip, state|
 
+| | |
+|---|---|
 |table:|person|
 |field:|id, address_id, name|
 
+| | |
+|---|---|
 |table:|employment_info|
 |field:|id, person_id, position, salary|
 
