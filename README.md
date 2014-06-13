@@ -2,7 +2,7 @@
 
 ## Solutions Approach
 
-I am using [WampServer](http://www.wampserver.com/en/), I do not recall which version specifically, MySQL 5.5.
+I am using [WampServer](http://www.wampserver.com/en/), I do not recall which version specifically, [MySQL 5.5](dev.mysql.com/doc/refman/5.5/en/).
 
 I have committed the script used to generate the original tables, populate test data, and so on, as well as capture a backup from the database itself.
 
