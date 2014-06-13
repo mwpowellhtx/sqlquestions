@@ -10,17 +10,11 @@ I have committed the script used to generate the original tables, populate test 
 
 Consider you have a database that has three tables:
 
-| | |
-|table:|address|
-|field:|id, street, zip, state|
-
-| | |
-|table:|person|
-|field:|id, address_id, name|
-
-| | |
-|table:|employment_info|
-|field:|id, person_id, position, salary|
+|table|columns|
+|---|---|
+|address|id, street, zip, state|
+|person|id, address_id, name|
+|employment_info|id, person_id, position, salary|
 
 What SQL statement would be necessary to pull all persons out of this database and sort from highest salary to lowest grouped by zip code.
 
