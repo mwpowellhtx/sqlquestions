@@ -53,36 +53,81 @@ FOREIGN KEY `fk_employment_info_person` (`person_id`) REFERENCES `person` (`id`)
 Then populate the test data. Again, some decisions have to be made. Under ordinary, production circumstances, this sort of thing is being filled in via surveys, data entry procedures, things of this nature. However, for test purposes, we intentionally keep the data set small, and we expose a couple of duplicate zip codes in order to demonstrate the solution is functioning properly.
 
 ``` sql
-INSERT INTO `address` (`street`, `zip`, `state`) VALUES ('123 Pine Meadow Rd', '10101', 'AL');
-INSERT INTO `address` (`street`, `zip`, `state`) VALUES ('456 Forrest Brush Blvd', '10101', 'AL');
-INSERT INTO `address` (`street`, `zip`, `state`) VALUES ('234 Fresh Springs Way', '21212', 'CA');
-INSERT INTO `address` (`street`, `zip`, `state`) VALUES ('678 Airy Breeze Ct', '21212', 'CA');
-INSERT INTO `address` (`street`, `zip`, `state`) VALUES ('345 Blue Skies Blvd', '32323', 'DE');
-INSERT INTO `address` (`street`, `zip`, `state`) VALUES ('789 Ocean Spray Ln', '32323', 'DE');
-INSERT INTO `address` (`street`, `zip`, `state`) VALUES ('456 Dairy Farm St', '43434', 'FL');
-INSERT INTO `address` (`street`, `zip`, `state`) VALUES ('890 Cow Poke Rd', '43434', 'FL');
+INSERT INTO `address` (`street`, `zip`, `state`)
+    VALUES ('123 Pine Meadow Rd', '10101', 'AL');
+
+INSERT INTO `address` (`street`, `zip`, `state`)
+    VALUES ('456 Forrest Brush Blvd', '10101', 'AL');
+
+INSERT INTO `address` (`street`, `zip`, `state`)
+    VALUES ('234 Fresh Springs Way', '21212', 'CA');
+
+INSERT INTO `address` (`street`, `zip`, `state`)
+    VALUES ('678 Airy Breeze Ct', '21212', 'CA');
+
+INSERT INTO `address` (`street`, `zip`, `state`)
+    VALUES ('345 Blue Skies Blvd', '32323', 'DE');
+
+INSERT INTO `address` (`street`, `zip`, `state`)
+    VALUES ('789 Ocean Spray Ln', '32323', 'DE');
+
+INSERT INTO `address` (`street`, `zip`, `state`)
+    VALUES ('456 Dairy Farm St', '43434', 'FL');
+
+INSERT INTO `address` (`street`, `zip`, `state`)
+    VALUES ('890 Cow Poke Rd', '43434', 'FL');
 ```
 
 ``` sql
-INSERT INTO `person` (`name`, `address_id`) VALUES ('Alice', (SELECT `id` FROM `address` WHERE `street`='123 Pine Meadow Rd'));
-INSERT INTO `person` (`name`, `address_id`) VALUES ('Bobby', (SELECT `id` FROM `address` WHERE `street`='456 Forrest Brush Blvd'));
-INSERT INTO `person` (`name`, `address_id`) VALUES ('Charlie', (SELECT `id` FROM `address` WHERE `street`='234 Fresh Springs Way'));
-INSERT INTO `person` (`name`, `address_id`) VALUES ('Daniel', (SELECT `id` FROM `address` WHERE `street`='678 Airy Breeze Ct'));
-INSERT INTO `person` (`name`, `address_id`) VALUES ('Edward', (SELECT `id` FROM `address` WHERE `street`='345 Blue Skies Blvd'));
-INSERT INTO `person` (`name`, `address_id`) VALUES ('Francis', (SELECT `id` FROM `address` WHERE `street`='789 Ocean Spray Ln'));
-INSERT INTO `person` (`name`, `address_id`) VALUES ('George', (SELECT `id` FROM `address` WHERE `street`='456 Dairy Farm St'));
-INSERT INTO `person` (`name`, `address_id`) VALUES ('Heather', (SELECT `id` FROM `address` WHERE `street`='890 Cow Poke Rd'));
+INSERT INTO `person` (`name`, `address_id`)
+    VALUES ('Alice', (SELECT `id` FROM `address` WHERE `street`='123 Pine Meadow Rd'));
+
+INSERT INTO `person` (`name`, `address_id`)
+    VALUES ('Bobby', (SELECT `id` FROM `address` WHERE `street`='456 Forrest Brush Blvd'));
+
+INSERT INTO `person` (`name`, `address_id`)
+    VALUES ('Charlie', (SELECT `id` FROM `address` WHERE `street`='234 Fresh Springs Way'));
+
+INSERT INTO `person` (`name`, `address_id`)
+    VALUES ('Daniel', (SELECT `id` FROM `address` WHERE `street`='678 Airy Breeze Ct'));
+
+INSERT INTO `person` (`name`, `address_id`)
+    VALUES ('Edward', (SELECT `id` FROM `address` WHERE `street`='345 Blue Skies Blvd'));
+
+INSERT INTO `person` (`name`, `address_id`)
+    VALUES ('Francis', (SELECT `id` FROM `address` WHERE `street`='789 Ocean Spray Ln'));
+
+INSERT INTO `person` (`name`, `address_id`)
+    VALUES ('George', (SELECT `id` FROM `address` WHERE `street`='456 Dairy Farm St'));
+
+INSERT INTO `person` (`name`, `address_id`)
+    VALUES ('Heather', (SELECT `id` FROM `address` WHERE `street`='890 Cow Poke Rd'));
 ```
 
 ``` sql
-INSERT INTO `employment_info` (`position`, `salary`, `person_id`) VALUES ('Accountant', '49995', (SELECT `id` FROM `person` WHERE `name`='Alice'));
-INSERT INTO `employment_info` (`position`, `salary`, `person_id`) VALUES ('Manager', '119250', (SELECT `id` FROM `person` WHERE `name`='Bobby'));
-INSERT INTO `employment_info` (`position`, `salary`, `person_id`) VALUES ('Bus Driver', '34795', (SELECT `id` FROM `person` WHERE `name`='Charlie'));
-INSERT INTO `employment_info` (`position`, `salary`, `person_id`) VALUES ('Teacher', '57495', (SELECT `id` FROM `person` WHERE `name`='Daniel'));
-INSERT INTO `employment_info` (`position`, `salary`, `person_id`) VALUES ('Developer', '135795', (SELECT `id` FROM `person` WHERE `name`='Edward'));
-INSERT INTO `employment_info` (`position`, `salary`, `person_id`) VALUES ('Masoner', '51235', (SELECT `id` FROM `person` WHERE `name`='Francis'));
-INSERT INTO `employment_info` (`position`, `salary`, `person_id`) VALUES ('Electrician', '62345', (SELECT `id` FROM `person` WHERE `name`='Heather'));
-INSERT INTO `employment_info` (`position`, `salary`, `person_id`) VALUES ('Pilot', '79795', (SELECT `id` FROM `person` WHERE `name`='George'));
+INSERT INTO `employment_info` (`position`, `salary`, `person_id`)
+    VALUES ('Accountant', '49995', (SELECT `id` FROM `person` WHERE `name`='Alice'));
+
+INSERT INTO `employment_info` (`position`, `salary`, `person_id`)
+    VALUES ('Manager', '119250', (SELECT `id` FROM `person` WHERE `name`='Bobby'));
+
+INSERT INTO `employment_info` (`position`, `salary`, `person_id`)
+    VALUES ('Bus Driver', '34795', (SELECT `id` FROM `person` WHERE `name`='Charlie'));
+
+INSERT INTO `employment_info` (`position`, `salary`, `person_id`)
+    VALUES ('Teacher', '57495', (SELECT `id` FROM `person` WHERE `name`='Daniel'));
+
+INSERT INTO `employment_info` (`position`, `salary`, `person_id`)
+    VALUES ('Developer', '135795', (SELECT `id` FROM `person` WHERE `name`='Edward'));
+
+INSERT INTO `employment_info` (`position`, `salary`, `person_id`)
+    VALUES ('Masoner', '51235', (SELECT `id` FROM `person` WHERE `name`='Francis'));
+
+INSERT INTO `employment_info` (`position`, `salary`, `person_id`)
+    VALUES ('Electrician', '62345', (SELECT `id` FROM `person` WHERE `name`='Heather'));
+
+INSERT INTO `employment_info` (`position`, `salary`, `person_id`)
+    VALUES ('Pilot', '79795', (SELECT `id` FROM `person` WHERE `name`='George'));
 ```
 
 ### The Answer
